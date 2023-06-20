@@ -5,11 +5,13 @@ const getResources = async (resource) => {
     const urls = await getResourcesUrl(resource);
     const resources = await getResourcesFromUrl(urls);
 
-    const parsedResources = resources.map(resource => {
-        const id = resource.result.uid;
-        const properties = resource.result.properties;
-        return  {id, ...properties}
-    })
+    const parsedResources = resources.map(res => {
+        const id = res.result.uid;
+        const properties = res.result.properties;
+        const type = resource;
+        const name = properties.name || properties.model;
+        return  {id, ...properties, type, name};
+    });
 return parsedResources;
 }
 

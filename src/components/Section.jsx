@@ -1,15 +1,15 @@
-import React from "react";
-import { Card } from "./Card.js";
+import styles from "./Section.module.css";
 
-export function Section({ title, elements }) {
+
+function Section({children, title}) {
     return (
         <>
-            <h2>{title}</h2>
-            <div className="overflow-x-auto">
-                {elements.map((element) => {
-                    return <Card prop={element} />;
-                })}
-            </div>
+        <h1>{title}</h1>
+        <div className={styles.section}>
+        {children}
+        </div>
         </>
     );
 }
+
+export default Section;
