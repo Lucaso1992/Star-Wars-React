@@ -1,7 +1,7 @@
 const connectToAPI = (url) => {
     return (
         fetch(url)
-            .then(res => {
+            .then((res) => {
                 if (!res.ok) {
                     throw Error();
                 }
