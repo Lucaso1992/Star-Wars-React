@@ -9,7 +9,7 @@ export const AppProvider = ({ children }) => {
     const planets = useResources("planets");
 
     const store = {
-        resources: people, vehicles, planets
+        people, vehicles, planets
     }
 
     return (<AppContext.Provider value={{store}}>
