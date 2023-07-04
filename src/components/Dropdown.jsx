@@ -5,11 +5,11 @@ import useAppContext from "../context/AppContext";
 const Dropdown = ({ favorites }) => {
     const { store } = useAppContext();
     return (
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
+        <div className="dropdown me-5">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Favorites
             </button>
-            <ul className="dropdown-menu">
+            <ul className="dropdown-menu dropdown-menu-end">
             {store.favorites.map((element, index) => {
                 return (<li key={index} ><div className="dropdown-item" >
                     <Link to={`http://localhost:5173/detail/${element.type}/${element.id}`}>{element.name}</Link></div></li>);

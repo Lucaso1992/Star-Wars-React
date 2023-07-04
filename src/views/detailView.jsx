@@ -28,15 +28,29 @@ function Detail() {
                 )}
                 {targetResource.type === "vehicles" && (
                     <div>
-                        <p><strong>Model: </strong>{targetResource.model}</p><p><strong>Vehicle Class: </strong>{targetResource.vehicle_class}</p><p><strong>Manufacturer: </strong>{targetResource.manufacturer}</p><p><strong>Cost in credits: </strong>{targetResource.cost_in_credits}</p><p><strong>Length: </strong>{targetResource.length}</p><p><strong>Crew: </strong>{targetResource.crew}</p><p><strong>Passengers: </strong>{targetResource.passengers}</p><p><strong>Speed: </strong>{targetResource.max_atmosphering_speed}</p><p><strong>Cargo Capacity: </strong>{targetResource.cargo_capacity}</p>
+                        <p><strong>Model: </strong>{targetResource.model}</p><p><strong>Vehicle Class: </strong>{targetResource.vehicle_class}</p>
+                        <p><strong>Manufacturer: </strong>{targetResource.manufacturer}</p>
+                        <p><strong>Cost in credits: </strong>{targetResource.cost_in_credits}</p>
+                        <p><strong>Length: </strong>{targetResource.length}</p>
+                        <p><strong>Crew: </strong>{targetResource.crew}</p>
+                        <p><strong>Passengers: </strong>{targetResource.passengers}</p>
+                        <p><strong>Speed: </strong>{targetResource.max_atmosphering_speed}</p>
+                        <p><strong>Cargo Capacity: </strong>{targetResource.cargo_capacity}</p>
                     </div>
                 )}
                 {targetResource.type === "planets" && (
                     <div>
-                        <p><strong>Diamater: </strong>{targetResource.diamater}</p><p><strong>Rotation Period: </strong>{targetResource.rotation_period}</p><p><strong>Orbital Period: </strong>{targetResource.orbital_period}</p><p><strong>Gravity: </strong>{targetResource.gravity}</p><p><strong>Population: </strong>{targetResource.population}</p><p><strong>Climate: </strong>{targetResource.climate}</p><p><strong>Terrain: </strong>{targetResource.terrain}</p><p><strong>Surface Water: </strong>{targetResource.surface_water}</p>
+                        <p><strong>Diamater: </strong>{targetResource.diamater}</p>
+                        <p><strong>Rotation Period: </strong>{targetResource.rotation_period}</p>
+                        <p><strong>Orbital Period: </strong>{targetResource.orbital_period}</p>
+                        <p><strong>Gravity: </strong>{targetResource.gravity}</p>
+                        <p><strong>Population: </strong>{targetResource.population}</p>
+                        <p><strong>Climate: </strong>{targetResource.climate}</p>
+                        <p><strong>Terrain: </strong>{targetResource.terrain}</p>
+                        <p><strong>Surface Water: </strong>{targetResource.surface_water}</p>
                     </div>
                 )}
-            </Card>
+                </Card>
         </div>
     )
 }
