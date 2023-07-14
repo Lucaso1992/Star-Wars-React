@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./views/homeView.jsx";
 import Detail from "./views/detailView.jsx";
 import Error from "./views/errorView.jsx";
-
+import "./App.css";
 
 function App() {
 
