@@ -8,8 +8,8 @@ export const AppProvider = ({ children }) => {
     const vehicles = useResources("vehicles");
     const planets = useResources("planets");
     const [favorites, setFavorties] = useState([]); 
-    const addFavorites = (id, type, name) => {
-        console.log("favorites");
+    const addFavorites = ( id, type, name) => {
+        console.log(favorites);
         setFavorties((prev) => {
             const newFavorite = {
                 id,

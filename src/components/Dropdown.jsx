@@ -6,7 +6,7 @@ const Dropdown = () => {
     const { store } = useAppContext();
     return (
         <div className="dropdown me-5">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Favorites 
             </button>
             <ul className="dropdown-menu dropdown-menu-end">
