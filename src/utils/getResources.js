@@ -1,4 +1,4 @@
-import getResourcesUrl from "./getResourcesUrl.js"
+import getResourcesUrl from "./getResourcesURL.js"
 import getResourcesFromUrl from "./getResourcesFromUrl.js"
 
 const getResources = async (resource) => {
