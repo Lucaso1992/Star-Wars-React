@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import img from "../assets/star-wars-1.png";
 import Dropdown from "./Dropdown.jsx";
+import ButtonLogin from "./ButtonLogin";
 
 export const Navbar = () => {
     return (
@@ -11,7 +12,8 @@ export const Navbar = () => {
                     <img className="ms-5" src={img} />
                 </span>
             </Link>
-            <div className="ml-auto">
+            <div className="ml-auto d-flex flex-row gap-3">
+                <ButtonLogin/>
                 <Dropdown />
             </div>
         </nav>

@@ -8,6 +8,8 @@ export const AppProvider = ({ children }) => {
     const vehicles = useResources("vehicles");
     const planets = useResources("planets");
     const [favorites, setFavorties] = useState([]); 
+    const[loggedIn, setLoggedIn] = useState(false);
+
     const addFavorites = ( id, type, name) => {
         console.log(favorites);
         setFavorties((prev) => {
@@ -30,7 +32,8 @@ export const AppProvider = ({ children }) => {
     }
 
     const actions = {
-        addFavorites
+        addFavorites,
+        setLoggedIn
     }
 
     return (<AppContext.Provider value={{store, actions}}>

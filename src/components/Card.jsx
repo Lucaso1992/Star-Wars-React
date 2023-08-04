@@ -7,7 +7,6 @@ import styles from "./Card.module.css";
 
 const Card = ({name, children, type, id, favorites }) => {
     const { actions, store } = useAppContext();
-    console.log(store.favorites);
     return (
         <div className="card" style={{ minWidth: "18rem" }}>
             <img style={{ maxWidth: "30rem"}} src={`https://starwars-visualguide.com/assets/img/${type}/${id}.jpg`} className="card-img-top img-fluid" alt="..." />
