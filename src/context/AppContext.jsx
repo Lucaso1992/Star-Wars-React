@@ -10,6 +10,13 @@ export const AppProvider = ({ children }) => {
     const [favorites, setFavorties] = useState([]); 
     const[loggedIn, setLoggedIn] = useState(false);
 
+
+    const logOut = () => {
+        sessionStorage.removeItem("token");
+        setLoggedIn(false);
+    }
+
+
     const addFavorites = ( id, type, name) => {
         console.log(favorites);
         setFavorties((prev) => {
@@ -28,12 +35,13 @@ export const AppProvider = ({ children }) => {
         )
     }
     const store = {
-        people, vehicles, planets, favorites
+        people, vehicles, planets, favorites, loggedIn
     }
 
     const actions = {
         addFavorites,
-        setLoggedIn
+        setLoggedIn,
+        logOut
     }
 
     return (<AppContext.Provider value={{store, actions}}>

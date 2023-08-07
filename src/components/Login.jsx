@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Authentication from '../services/Authentication';
-import {Signup} from '../services/Signup.js';
+import Authentication from '../services/Authentication';
+import { Signup } from '../services/Signup.js';
 import useAppContext from '../context/AppContext'
 
 const Login = () => {
@@ -18,33 +18,71 @@ const Login = () => {
         setPassword(e.target.value);
     };
 
-    const handleSubmit = async (e) => {
+    const handleSingUp = async (e) => {
         e.preventDefault();
-        Signup(email, password).then(() => {navigate("/");
-        console.log('Email:', email);
-        console.log('Password:', password);
-        setEmail('');
-        setPassword('');
-    });
+        Signup(email, password).then(() => {
+            navigate("/");
+            setEmail('');
+            setPassword('');
+        });
+    };
+
+    const handleLogIn = async (e) => {
+        e.preventDefault();
+        Authentication(email, password).then(() => {
+            navigate("/");
+            setEmail('');
+            setPassword('');
+            actions.setLoggedIn(true);
+        });
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
+        <div className="container w-25">
+            <ul className="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
+                <li className="nav-item" role="presentation">
+                    <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Login</button>
+                </li>
+                <li className="nav-item" role="presentation">
+                    <button className="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Signup</button>
+                </li>
+            </ul>
+            <div className="tab-content" id="myTabContent">
+                <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                 <div>
-                    <label>Email:</label>
-                    <input type="email" value={email} onChange={handleEmailChange} required />
+                        <h2 className='text-light'>Login</h2>
+                        <form>
+                            <div>
+                                <label className='text-white'>Email:</label>
+                                <input type="email" value={email} onChange={handleEmailChange} required />
+                            </div>
+                            <div>
+                                <label className='text-light'>Password:</label>
+                                <input type="password" value={password} onChange={handlePasswordChange} required />
+                            </div>
+                            <button type="button" onClick={handleLogIn}>Login</button>
+                        </form>
+                    </div>
                 </div>
-                <div>
-                    <label>Password:</label>
-                    <input type="password" value={password} onChange={handlePasswordChange} required />
+                <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                    <div>
+                        <h2 className='text-light'>SignUp</h2>
+                        <form>
+                            <div>
+                                <label className='text-light'>Email:</label>
+                                <input type="email" value={email} onChange={handleEmailChange} required />
+                            </div>
+                            <div>
+                                <label className='text-light'>Password:</label>
+                                <input type="password" value={password} onChange={handlePasswordChange} required />
+                            </div>
+                            <button type="button" onClick={handleSingUp}>SignUp</button>
+                        </form>
+                    </div>
                 </div>
-                <button type="submit">Registrarse</button>
-                {/* <button type="submit">Registrarse</button> */}
-            </form>
+            </div>
         </div>
     );
-    };
+};
 
 export default Login;
