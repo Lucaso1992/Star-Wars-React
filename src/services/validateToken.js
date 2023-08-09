@@ -1,17 +1,22 @@
+export const validateToken = async () => {
+    const token = sessionStorage.getItem("token");
+    try {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}protected`, {
+            headers: {"Authorization": "Bearer " + token}
+        });
 
-const validateToken = async (email, password) => {
-    const token = sessionStorage.getItem("token")
-    return (
-        await fetch(`${process.env.BACKEND_URL}/validatetoken`, {method: "POST", headers: {"Authorization": "Bearer" + token}})
-        
-        .then((res) => {
-            if (!res.ok) {
-                throw Error();
+        if (response.status !== 200) {
+            console.log("Error de validacion");
+        } else {
+            const data = await response.json();
+            if (data && data.token) {
+                sessionStorage.setItem("token", data.token);
+            } else {
+                alert("Token no válido");
             }
-            return res.json();
-        })
-        .then(data => sessionStorage.setItem("token" = data.token)
-        .catch(err => console.log(err))
-        )
-    )
-}
+        }
+    } catch (err) {
+        console.log(err);
+        alert("Error en la solicitud");
+    }
+};

@@ -1,14 +1,27 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
 import Card from "../components/Card.jsx";
 import useAppContext from "../context/AppContext";
+import { validateToken } from "../services/validateToken.js";
 
 function Detail() {
     const params = useParams();
     const { store } = useAppContext();
+    const navigate = useNavigate();
     const resource = (r) => {
         if (r.resource === "characters") { return store["people"] }
         return store[r.resource]
     }
+
+useEffect (() => {
+        const Validation = async () => {
+        if (!(await validateToken()))
+        alert("tenes que loguearte")
+        navigate("/login");
+    }
+    Validation();
+}, []);
 
     const resources = resource(params);
     const targetResource = resources.find(element => element.id === params.id);
